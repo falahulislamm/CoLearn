@@ -10,7 +10,7 @@ class Pengguna extends Model
     use HasFactory;
 
     protected $table = 'user';
-    protected $fillable = ['id', 'nama', 'nim', 'email', 'telp', 'created_at', 'updated_at', 'jurusan_id', 'peminatan_id'];
+    protected $fillable = ['id', 'user_id', 'nama', 'nim', 'email', 'telp', 'created_at', 'updated_at', 'jurusan_id', 'peminatan_id'];
     public $timestamps = false;
 
     public function jurusan(){
@@ -19,6 +19,10 @@ class Pengguna extends Model
 
     public function peminatan(){
         return $this->belongsTo(Peminatan::class, 'peminatan_id'); //belongsTo -> one to many
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id'); // pastikan 'user_id' adalah kolom yang menghubungkan User dan Member
     }
 
 }

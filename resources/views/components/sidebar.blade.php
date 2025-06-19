@@ -10,12 +10,15 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-2 d-flex justify-content-center">
         <div class="info">
+            @auth
+            @if (Auth::check())
             <div class="info">
-              <span class="text-primary">You Log In as: Admin</span>
+              <span class="text-primary">You Log In as: {{ ucwords(Auth::user()->role) }}</span>
             </div>
+            @endif
+            @endauth
         </div>
       </div>
-     
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -106,18 +109,20 @@
                   </p>
               </a>
           </li>
-          
+
+          @auth
           <li class="nav-item">
-              <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <i class="fa-solid fa-right-from-bracket"></i>
                   <p> Logout </p>
               </a>
-              <form id="logout-form" action="#" method="POST" style="display: none;">
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
               </form>
           </li>
+          @endauth
         </ul>
       </nav>
-      
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

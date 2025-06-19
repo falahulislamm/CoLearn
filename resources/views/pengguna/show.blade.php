@@ -36,7 +36,7 @@
         @foreach($list_pengguna as $pengguna)
         <tr>
             <td class="fw-bold">{{ $pengguna->id }}</td>
-            <td>{{ ucwords($pengguna->nama) }}</td>
+            <td>{{ ucwords($pengguna->user ? $pengguna->user->name : 'User not found') }}</td>
             <td>
                 <span>{{ $pengguna->nim }}</span>
             </td>
@@ -127,9 +127,9 @@
             modalBody.innerHTML = `
                 <table class="table table-striped table-sm">
                     <tr><th class="w-25">ID</th><td>${data.id}</td></tr>
-                    <tr><th>Pengguna</th><td>${capitalizeWords(data.nama)}</td></tr>
+                    <tr><th>Pengguna</th><td>${capitalizeWords(data.user.name)}</td></tr>
                     <tr><th>NIM</th><td>${data.nim}</td></tr>
-                    <tr><th>Email</th><td>${data.email}</td></tr>
+                    <tr><th>Email</th><td>${data.user.email}</td></tr>
                     <tr><th>No Telp</th><td>${data.telp}</td></tr>
                     <tr><th>Jurusan</th><td>${capitalizeWords(data.jurusan.nama ?? 'Null')}</td></tr>
                     <tr><th>Peminatan</th><td>${capitalizeWords(data.peminatan.nama ?? 'Null')}</td></tr>

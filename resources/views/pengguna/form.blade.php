@@ -30,17 +30,6 @@
                     <form action="{{ route('pengguna.store') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-primary text-white">
-                                    <i class="bi bi-envelope-fill"></i>
-                                </span>
-                                <input type="text" name="nama" id="nama" 
-                                    value="{{ $pengguna->nama }}" 
-                                    class="form-control" placeholder="Masukkan Nama Anda" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
                             <label for="nim" class="form-label">NIM</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-primary text-white">
@@ -49,17 +38,6 @@
                                 <input type="number" name="nim" id="nim" 
                                     value="{{ $pengguna->nim }}" 
                                     class="form-control" placeholder="Masukkan NIM Anda" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-primary text-white">
-                                    <i class="bi bi-envelope-fill"></i>
-                                </span>
-                                <input type="email" name="email" id="email" 
-                                    value="{{ $pengguna->email }}" 
-                                    class="form-control" placeholder="Masukkan Email Anda" required>
                             </div>
                         </div>
                         <div class="mb-3">

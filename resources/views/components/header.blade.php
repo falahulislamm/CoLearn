@@ -49,22 +49,28 @@
     
 <li class="mr-3">
   <div class="dropdown">
+    @auth
+    @if (Auth::check())
     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    NAMA
+    {{ ucwords(Auth::user()->name ?? "") }}
     </button>
+    @endif
+    @endauth
     <ul class="dropdown-menu dropdown-menu-end">
+      @auth
       <li>
-        <a class="dropdown-item" href="#">Profile</a>
+        <a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a>
       </li>
       <li>
-        <a class="dropdown-item" href="#"
+        <a class="dropdown-item" href="{{ route('logout') }}"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           Logout
         </a>
-        <form id="logout-form" action="#" method="POST" style="display: none;">
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
         </form>
       </li>
+      @endauth
     </ul>
   </div>
 </li>

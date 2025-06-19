@@ -61,10 +61,14 @@
   <div class="d-flex justify-content-between">
     <div class="card-body card-dashboard">
       <fieldset>
-        <legend style="color: black; font-weight: bold;">Hi, {NAMA}!</legend>
+        @auth
+        @if (Auth::check())
+        <legend style="color: black; font-weight: bold;">Hi, {{ ucwords(Auth::user()->name) }}!</legend>
         <article style="text-align: justify; color: black;">
           <span style="font-size: 150%;">L</span>orem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, labore vel enim similique qui voluptate magnam. Molestias labore recusandae dolore at, iure dolorum deleniti doloribus dicta quasi reiciendis consequatur official Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, corporis omnis? Numquam impedit ducimus asperiores sapiente repudiandae molestiae non possimus eius velit quod temporibus sed aliquid, iure necessitatibus iste debitis!
         </article>
+        @endif
+        @endauth
       </fieldset>
     </div>
 

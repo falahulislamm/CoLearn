@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pengguna;
 use App\Models\Jurusan;
 use App\Models\Peminatan;
@@ -26,23 +27,20 @@ class PenggunaController extends Controller
     {
         // Validasi data inputan
         $request->validate([
-            'nama' => 'required',
             'nim' => 'required',
-            'email' => 'required',
             'telp' => 'required',
             'jurusan_id' => 'required',
             'peminatan_id' => 'required',
         ]);
 
-        if($request->id){  
-            Pengguna::find($request->id)->update($request->all());
-            // Redirect to the index page with a success message
+        $penggunaData = $request->all();
+        $penggunaData['user_id'] = Auth::id();
+
+        if ($request->id) {
+            Pengguna::find($request->id)->update($penggunaData);
             return redirect(route('pengguna.show'))->with('pesan', 'Data berhasil diupdate');
-        }
-        else{
-            // Create a new produk instance with the validated data
-            Pengguna::create($request->all());
-            // Redirect to the index page with a success message
+        } else {
+            Pengguna::create($penggunaData);
             return redirect(route('pengguna.show'))->with('pesan', 'Data berhasil disimpan');
         }
     }
@@ -57,7 +55,7 @@ class PenggunaController extends Controller
 
     public function view($id)
     {
-        $pengguna = Pengguna::with('jurusan', 'peminatan')->find($id);
+        $pengguna = Pengguna::with('jurusan', 'peminatan', 'user')->find($id);
 
         if (!$pengguna) {
             return response()->json(['error' => 'pengguna not found'], 404);
