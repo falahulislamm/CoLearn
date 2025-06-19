@@ -45,82 +45,55 @@
           </li>
           
           <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{ url('pengguna/show') }}" class="nav-link">
               <i class="fa-solid fa-address-card"></i>
                   <p>
-                       Data
+                      Data Pengguna
                   </p>
               </a>
           </li>
           
           <li class="nav-item">
-              <a href="{{ url('customerdata') }}" class="nav-link">
-              <i class="fa-solid fa-address-card"></i>
-                  <p>
-                      Data
-                  </p>
-              </a>
-          </li>
-          
-          <li class="nav-item">
-              <a href="{{ url('provider/show') }}" class="nav-link">
+              <a href="{{ url('admin/show') }}" class="nav-link">
               <i class="fa-solid fa-users-gear"></i>
                   <p>
-                      Data
+                      Data Admin
                   </p>
               </a>
           </li>
 
           <li class="nav-item">
-              <a href="{{ url('services/show') }}" class="nav-link">
+              <a href="{{ url('jurusan/show') }}" class="nav-link">
               <i class="fa-solid fa-toolbox"></i>
                   <p>
-                      Data
+                      Data Jurusan
                   </p>
               </a>
           </li>
 
           <li class="nav-item">
-              <a href="{{ url('providers_services/show') }}" class="nav-link">
+              <a href="{{ url('peminatan/show') }}" class="nav-link">
               <i class="fa-solid fa-hand-holding-heart"></i>
                   <p>
-                      Data
+                      Data Peminatan
                   </p>
               </a>
           </li>
 
           <li class="nav-item">
-              <a href="{{ url('orders/show') }}" class="nav-link">
+              <a href="{{ url('diskusi/show') }}" class="nav-link">
               <i class="fa-solid fa-truck-fast"></i>
                   <p>
-                      Data
+                      Data Diskusi
                   </p>
               </a>
           </li>
 
           <li class="nav-item">
-              <a href="{{ url('customerorder') }}" class="nav-link">
+              <a href="{{ url('comment/show') }}" class="nav-link">
               <i class="fa-solid fa-truck-fast"></i>
                   <p>
-                      Data
-                  </p>
-              </a>
-          </li>
-
-          <li class="nav-item">
-              <a href="{{ url('payments/show') }}" class="nav-link">
-              <i class="fa-solid fa-money-bill-1-wave"></i>
-                  <p>
-                      Data
-                  </p>
-              </a>
-          </li>
-
-          <li class="nav-item">
-              <a href="{{ url('reviews/show') }}" class="nav-link">
-              <i class="fa-solid fa-comment"></i>
-                  <p>
-                      Data
+                      Data Comment
                   </p>
               </a>
           </li>
